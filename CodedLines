@@ -1,0 +1,50 @@
+
+import cmath
+
+# coordinates input
+x1 = int(input("(x1, y1), (x2, y2) | what is x1?: "))
+y1 = int(input(f"({x1}, y1), (x2, y2) | what is y1?: "))
+x2 = int(input(f"({x1}, {y1}), (x2, y2) | what is x2?: "))
+y2 = int(input(f"({x1}, {y1}), ({x2}, y2) | what is y2?: "))
+print(f"\n({x1}, {y1}), ({x2}, {y2})\n")
+
+
+# gradient
+
+if x2 == x1:      # to avoid dividing by 0
+    m = 0
+
+elif y2 == y1:
+    m = 0
+
+elif x2 != x1:
+    dify = (y2-y1)
+    difx = (x2-x1)
+    m = (dify/difx)
+
+
+# y-intercept
+
+x = x1
+y = y1
+c = (-m*x+y)
+
+
+# equation
+    # (1) to remove unnecessary variables or constants
+    # (2) to add the + sign if c is positive [y=mxc]->[y=mx+c]
+
+if m == 0:
+    fnal = (f"{c}\n")               # 1
+
+elif c == 0:
+    fnal = (f"{m}x\n")              # 1
+
+else:
+    if c >= 0:
+        fnal = (f"{m}"+f"x+{c}\n")  # 2
+    elif c < 0:
+        fnal = (f"{m}"+f"x{c}\n")
+
+# print
+print (f"\ngradient: {m} \ny-intercept: {c} \nequation: y = {fnal}")
